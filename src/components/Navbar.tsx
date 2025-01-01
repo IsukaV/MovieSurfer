@@ -1,13 +1,8 @@
-import { useEffect } from "react"
 import { useLocation } from 'react-router-dom';
 import './Navbar.css'
 
 const Navbar = () => {
     const location = useLocation();
-
-    useEffect(() => {
-
-    }, [] )
 
     return (
         <div className="navbar">
