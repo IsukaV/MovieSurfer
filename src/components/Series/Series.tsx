@@ -1,7 +1,7 @@
 import {useState} from 'react'
-import SearchSeries from './SearchSeries';
 import SearchResults from '../SearchResults';
 import './Series.css'
+import SearchItem from '../Common/SearchItem';
 
 const Series = () => {
     const [series, setSeries] = useState("")
@@ -17,7 +17,7 @@ const Series = () => {
 
     return(
         <div className="series-search-container">
-            {!series && <SearchSeries seriesSearched={handleSearchSeries}/>}
+            {!series && <SearchItem searched={handleSearchSeries} type="Tv Series"/>}
             {series && <SearchResults searchText={series} backClicked={handleBackClicked} type="series"/>}
             
         </div>

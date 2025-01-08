@@ -5,22 +5,22 @@ import './Movies.css'
 
 const Movies = () => {
     const [movie, setMovie] = useState("")
-    const [movieSearched, setMovieSearched] = useState(false)
+    const [searched, setSearched] = useState(false)
 
-    const handleSearchMovie = (data: any) => {
-        setMovieSearched(true)
+    const handleSearchMovie = (data: string) => {
+        setSearched(true)
         setMovie(data)
         console.log(movie)
     }
 
     const handleBackClicked = () => {
-        setMovieSearched(false)
+        setSearched(false)
         setMovie("")
     }
 
     return(
         <div className="movie-search-container">
-            {!movie && <SearchMovie movieSearched={handleSearchMovie}/>}
+            {!movie && <SearchMovie searched={handleSearchMovie} type="movie"/>}
             {movie && <SearchResults searchText={movie} backClicked={handleBackClicked} type="movie"/>}
             
         </div>
