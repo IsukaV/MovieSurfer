@@ -26,6 +26,7 @@ export type itemInfo = searchItem & {
     Country: string;
     Awards: string;
     Director: string;
+    totalSeasons: string;
 }
 
 export type seriesInfo = itemInfo & {

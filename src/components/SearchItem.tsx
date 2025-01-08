@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { seriesSearch, seriesInfo } from "./../types/series.types";
-import { fetchSeriesInfo } from "../services/apiServices";
-import "./SeriesItem.css";
+import { itemInfo, seriesInfo, searchItem} from "../types/common.types";
+import { fetchItemInfo } from "../services/apiServices";
+import './SearchItem.css';
 
-const SeriesItem: React.FC<{ series: seriesSearch }> = ({ series }) => {
+const Item: React.FC<{ item: searchItem }> = ({ item }) => {
   const [itemClicked, setItemClicked] = useState(false);
 
   const handleDetailClose = () => {
@@ -12,38 +12,38 @@ const SeriesItem: React.FC<{ series: seriesSearch }> = ({ series }) => {
   return (
     <>
       <div
-        className="series-item-container"
+        className="item-item-container"
         onClick={() => setItemClicked(true)}
       >
-        <div className="series-img-container">
-          {series.Poster != "N/A" && <img src={series.Poster} />}
-          {series.Poster == "N/A" && <div>No Image</div>}
+        <div className="item-img-container">
+          {item.Poster != "N/A" && <img src={item.Poster} />}
+          {item.Poster == "N/A" && <div>No Image</div>}
         </div>
-        <div className="series-info-container">
-          <p className="series-title">{series.Title}</p>
+        <div className="item-info-container">
+          <p className="item-title">{item.Title}</p>
         </div>
       </div>
       {itemClicked && (
-        <SeriesDetails series={series} detailClosed={handleDetailClose} />
+        <ItemDetails item={item} detailClosed={handleDetailClose} />
       )}
     </>
   );
 };
 
-const SeriesDetails: React.FC<{
-  series: seriesSearch;
+const ItemDetails: React.FC<{
+  item: searchItem;
   detailClosed: () => void;
-}> = ({ series, detailClosed }) => {
-  const [data, setData] = useState<seriesInfo | null>(null);
+}> = ({ item, detailClosed }) => {
+  const [data, setData] = useState<itemInfo | seriesInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
 
-    const getSeriesInfo = async () => {
+    const getitemInfo = async () => {
       try {
-        const seriesData = await fetchSeriesInfo(series.imdbID);
-        setData(seriesData);
+        const itemData = await fetchItemInfo(item.imdbID);
+        setData(itemData);
       } catch (error: any) {
         console.log(error);
       } finally {
@@ -51,22 +51,22 @@ const SeriesDetails: React.FC<{
       }
     };
 
-    getSeriesInfo();
+    getitemInfo();
   }, []);
 
   return (
-    <div className="series-details-container">
+    <div className="item-details-container">
       {loading && (
-        <div className="series-details" style={{ textAlign: "center" }}>
+        <div className="item-details" style={{ textAlign: "center" }}>
           <p>Loading</p>
         </div>
       )}
 
       {!loading && (
-        <div className="series-details">
+        <div className="item-details">
           {data?.Plot && (
             <div>
-              <p className="series-title-txt">
+              <p className="item-title-txt">
                 {data.Title} - {data.Year}{" "}
               </p>
               <p>{data.Plot}</p>
@@ -106,11 +106,11 @@ const SeriesDetails: React.FC<{
           )}
         </div>
       )}
-      <button className="close-series-details" onClick={detailClosed}>
+      <button className="close-item-details" onClick={detailClosed}>
         Close
       </button>
     </div>
   );
 };
 
-export default SeriesItem;
+export default Item;
