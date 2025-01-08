@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {movieSearch, movieInfo} from './../../types/movie.types'
-import { fetchMovieInfo } from '../../services/apiServices'
+import { fetchItemInfo} from '../../services/apiServices'
 import './MovieItem.css'
 
 const MovieItem: React.FC<{movie: movieSearch}>= ({movie}) => {
@@ -35,7 +35,7 @@ const MovieDetails: React.FC<{movie:movieSearch, detailClosed: ()=> void}> = ({m
         
         const getMovieInfo = async () => {
             try {
-              const seriesData = await fetchMovieInfo(movie.imdbID); 
+              const seriesData = await fetchItemInfo(movie.imdbID); 
               setData(seriesData);
             } catch (error: any) {
               console.log(error)
