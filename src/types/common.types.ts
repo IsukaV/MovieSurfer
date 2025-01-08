@@ -1,4 +1,5 @@
-export type movieSearch = {
+//movieSearch & seriesSearch 
+export type searchItem = {
     Title: string;
     Year: string;
     imdbID: string;
@@ -6,12 +7,14 @@ export type movieSearch = {
     Poster: string;
 }
 
-export type movieData = {
+//movieData & seriesData
+export type searchItems = {
     totalResults: number;
-    Search: movieSearch[];
+    Search: searchItem[];
 }
 
-export type movieInfo = movieSearch & {
+//movieInfo
+export type itemInfo = searchItem & {
     Rated: string;
     Released: string;
     Runtime: string;
@@ -23,4 +26,8 @@ export type movieInfo = movieSearch & {
     Country: string;
     Awards: string;
     Director: string;
+}
+
+export type seriesInfo = itemInfo & {
+    totalSeasons: string;
 }
