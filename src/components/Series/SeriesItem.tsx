@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {seriesSearch,  seriesInfo} from './../../types/series.types'
-import { fetchSeriesInfo } from '../../services/apiServices'
+import { fetchItemInfo} from '../../services/apiServices'
 import './SeriesItem.css'
 
 const SeriesItem: React.FC<{series: seriesSearch}> = ({series}) => {
@@ -36,7 +36,7 @@ const SeriesDetails : React.FC<{series: seriesSearch, detailClosed: () => void}>
 
         const getSeriesInfo = async () => {
             try {
-              const seriesData = await fetchSeriesInfo(series.imdbID); 
+              const seriesData = await fetchItemInfo(series.imdbID); 
               setData(seriesData);
             } catch (error: any) {
               console.log(error)

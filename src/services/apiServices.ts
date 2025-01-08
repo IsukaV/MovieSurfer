@@ -1,10 +1,11 @@
-import {movieSearch, movieData} from './../types/movie.types'
-import { searchItem, searchItems } from '../types/common.types';
-import { seriesData } from '../types/series.types';
+
+import {  searchItems } from '../types/common.types';
+
+const baseUrl = 'https://www.omdbapi.com'
 
 export const fetchItems = async (searchText: string, pageNo: number, type: string): Promise<searchItems> => {
     try{
-        const response = await fetch( `https://www.omdbapi.com/?&s=${searchText}&type=${type}&page=${pageNo}&apikey=38556ccb`)
+        const response = await fetch( `${baseUrl}/?&s=${searchText}&type=${type}&page=${pageNo}&apikey=38556ccb`)
         if(!response.ok){
             throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -12,33 +13,25 @@ export const fetchItems = async (searchText: string, pageNo: number, type: strin
         return data
     }catch(error: unknown){
         if(error instanceof Error){
-            console.log(error.message)
+            throw new Error(error.message)
         }
+        throw new Error(`Unknown error`)
     }
 }
 
-export const fetchMovieInfo = async (id: string) => {
+export const fetchItemInfo = async (id: string) => {
     try {
-        const response = await fetch(`https://www.omdbapi.com/?&i=${id}&apikey=38556ccb`);
+        const response = await fetch(`${baseUrl}/?&i=${id}&apikey=38556ccb`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         return data
-    } catch (error: any) {
-        throw new Error(`Fetching series failed: ${error.message}`); 
+    }catch(error: unknown){
+        if(error instanceof Error){
+            throw new Error(error.message)
+        }
+        throw new Error(`Unknown error`)
     }
 };
 
-export const fetchSeriesInfo = async (id: string) => {
-    try {
-        const response = await fetch(`https://www.omdbapi.com/?&i=${id}&apikey=38556ccb`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json(); 
-        return data
-    } catch (error: any) {
-        throw new Error(`Fetching series failed: ${error.message}`); 
-    }
-};
