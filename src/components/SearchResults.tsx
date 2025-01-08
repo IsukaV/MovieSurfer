@@ -4,7 +4,7 @@ import SeriesItem from "./Series/SeriesItem"
 import PageSelector from "./PageSelector"
 import {movieData} from './../types/movie.types'
 import {seriesData} from './../types/series.types'
-import { fetchMovies , fetchSeries} from "../services/apiServices"
+import { fetchItems} from "../services/apiServices"
 import './SearchResults.css'
 
 interface SearchResultsProps {
@@ -22,48 +22,20 @@ const SearchResults: React.FC<SearchResultsProps> = ({searchText, backClicked, t
 
 
     useEffect(() => {
-        if(type == "movie"){
-            setLoading(true)
-
-            const getMovies = async () => {
-                try {
-                  const movieData = await fetchMovies(searchText, pageNo); 
-                  setData(movieData);
-                } catch (error: any) {
-                  setError(error.message);
-                } finally {
-                  setLoading(false);
-                }
-              };
-            
-            getMovies();
-            
-            setSearchTxt(searchText)
-            console.log("search text is" ,searchText)
-            fetchMovies(searchText, pageNo)
-    }else{
-
-        setLoading(true)
-
-        const getSeries = async () => {
-            try {
-              const seriesData = await fetchSeries(searchText, pageNo); 
-              setData(seriesData);
-            } catch (error: any) {
-              setError(error.message);
-            } finally {
-              setLoading(false);
-            }
-          };
-        
-        getSeries();
-
-        setSearchTxt(searchText)
-        fetchSeries(searchText, pageNo)
-    }
-        
-
-        
+      setLoading(true)
+      const getItems = async () => {
+        try {
+          const items = await fetchItems(searchText, pageNo, type); 
+          setData(items);
+        } catch (error: any) {
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+    
+    getItems();
+    setSearchTxt(searchText)
     }, [pageNo]);
 
 
