@@ -12,8 +12,9 @@ export const fetchItems = async (searchText: string, pageNo: number, type: strin
         return data
     }catch(error: unknown){
         if(error instanceof Error){
-            console.log(error.message)
+            throw new Error(error.message)
         }
+        throw new Error(`Unknown error`)
     }
 }
 
