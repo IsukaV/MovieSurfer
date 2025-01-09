@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import IonIcon from '@reacticons/ionicons';
-import '../Movie/SearchMovie.css'
+import './SearchItem.css'
 
 const SearchItem: React.FC<{searched: (content: string) => void;type:string}> = ({ searched,type },) => {
     const [searchValue, setSearchValue] = useState("")
@@ -8,7 +8,7 @@ const SearchItem: React.FC<{searched: (content: string) => void;type:string}> = 
 
     return (
         <div className = "movie-search">
-            <p>Search & Discover {type} of your choise</p>
+            <p>Search & Discover {type} of your choice</p>
             <div className="movie-search-bar">
             <input 
                 

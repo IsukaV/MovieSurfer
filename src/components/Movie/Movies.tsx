@@ -1,12 +1,13 @@
 import {useState} from 'react'
-import SearchMovie from './SearchMovie';
+
 import SearchResults from '../SearchResults';
 import './Movies.css'
+import SearchItem from '../Common/SearchItem';
 
 const Movies = () => {
     const [movie, setMovie] = useState("")
     const [searched, setSearched] = useState(false)
-
+    console.log(searched);
     const handleSearchMovie = (data: string) => {
         setSearched(true)
         setMovie(data)
@@ -20,7 +21,7 @@ const Movies = () => {
 
     return(
         <div className="movie-search-container">
-            {!movie && <SearchMovie searched={handleSearchMovie} type="movie"/>}
+            {!movie && <SearchItem searched={handleSearchMovie} type="movie"/>}
             {movie && <SearchResults searchText={movie} backClicked={handleBackClicked} type="movie"/>}
             
         </div>
