@@ -1,6 +1,7 @@
 import React , {useState, useEffect} from "react"
 import MovieItem from './Movie/MovieItem'
 import SeriesItem from "./Series/SeriesItem"
+import SearchItem from "./SearchItem"
 import PageSelector from "./PageSelector"
 import {movieData} from './../types/movie.types'
 import {seriesData} from './../types/series.types'
@@ -62,13 +63,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({searchText, backClicked, t
         {data.Search && 
         <div className="movie-results-container">
         {!loading && type=="movie" && searchTxt && data.Search.map((movie) => (
-        <MovieItem
-            movie={movie}
+        <SearchItem
+            item={movie}
         />
         ))}
         {!loading && type=="series" && searchTxt && data.Search.map((series) => (
-        <SeriesItem
-            series={series}
+        <SearchItem
+            item={series}
         />
         ))}
         {loading &&
