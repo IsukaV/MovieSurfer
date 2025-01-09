@@ -1,109 +1,108 @@
-.series-item-container{
-    margin: auto;
-    cursor: pointer;
-    height: 270px;
-    width: 200px;
-    border-radius: 10px;
-    box-shadow: rgba(99, 99, 99, 0.7) 0px 1px 7px 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-    background-color:rgb(0, 0, 0);
+.series-item-container {
+  margin: auto;
+  cursor: pointer;
+  height: 270px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.7) 0px 1px 7px 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(0, 0, 0);
 }
 
-.series-item-container:hover  .series-info-container{
-    height: 270px;
-    transition:0.3s ease, height 0.3s ease;
+.series-item-container:hover .series-info-container {
+  height: 270px;
+  transition:
+    0.3s ease,
+    height 0.3s ease;
 }
 
-.series-img-container{
-    display: block;
-    width: 100%;
-    /* overflow: hidden; */
+.series-img-container {
+  display: block;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
-.series-img-container img{
-    width: 200px;
-    margin: auto;
+.series-img-container img {
+  width: 200px;
+  margin: auto;
 }
 
-.series-info-container{
-    position: absolute;
-    bottom:0;
-    left:0;
-    display: block;
-    width: 100%;
-    height:70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 18px;
-    text-shadow: 2px 2px 4px #000000;
-    color: white;
-    background-color:  rgba(0, 0, 0, 0.7);
-
+.series-info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px #000000;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-.series-title{
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit to 2 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden; 
+.series-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.series-item-container:hover  .series-title{
-    display: -webkit-box;
-    -webkit-line-clamp: 10; /* Limit to 2 lines */
-    -webkit-box-orient: vertical;
-    overflow: hidden; 
+.series-item-container:hover .series-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.series-details-container{
-    width: 70%;
-    min-height: 400px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the popup */
-    background-color: white;
-    box-shadow: rgba(99, 99, 99, 0.7) 0px 1px 7px 3px;
-    z-index: 999;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   
-   
+.series-details-container {
+  width: 70%;
+  min-height: 400px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the popup */
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.7) 0px 1px 7px 3px;
+  z-index: 999;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.series-details{
-    width: 100%;
-    
-    height: 350px;
-    overflow-y: scroll;
+.series-details {
+  width: 100%;
+
+  height: 350px;
+  overflow-y: scroll;
 }
 
-.close-series-details{
-    background-color: rgb(0, 139, 199);
-    align-self: center;
-    border: 0;
-    height: 50px;
-    width: 100px;
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
+.close-series-details {
+  background-color: rgb(0, 139, 199);
+  align-self: center;
+  border: 0;
+  height: 50px;
+  width: 100px;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.close-series-details:hover{
-    background-color: rgb(3, 100, 142);
+.close-series-details:hover {
+  background-color: rgb(3, 100, 142);
 }
 
-.series-title-txt{
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.series-title-txt {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }

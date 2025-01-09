@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { itemInfo, seriesInfo, searchItem} from "../types/common.types";
+import { itemInfo, seriesInfo, searchItem } from "../types/common.types";
 import { fetchItemInfo } from "../services/apiServices";
-import './SearchItem.css';
+import "./SearchItem.css";
 
 const Item: React.FC<{ item: searchItem }> = ({ item }) => {
   const [itemClicked, setItemClicked] = useState(false);
@@ -11,10 +11,7 @@ const Item: React.FC<{ item: searchItem }> = ({ item }) => {
   };
   return (
     <>
-      <div
-        className="item-item-container"
-        onClick={() => setItemClicked(true)}
-      >
+      <div className="item-item-container" onClick={() => setItemClicked(true)}>
         <div className="item-img-container">
           {item.Poster != "N/A" && <img src={item.Poster} />}
           {item.Poster == "N/A" && <div>No Image</div>}

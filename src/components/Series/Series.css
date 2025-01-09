@@ -1,9 +1,8 @@
-.series-search-container{
-    width: 100%;
-    display:flex;
-    gap: 20px;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
+.series-search-container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
 }
-

@@ -2,8 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,7 +15,6 @@ body {
   padding-top: 0px;
 }
 
-p{
+p {
   margin: 0;
 }
-
