@@ -6,10 +6,11 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <p className="logo-txt">Movie Surfer</p>
+      <p className="logo-txt" data-testid="navbar-logo">Movie Surfer</p>
       <nav>
         <Link
           to="/"
+          data-testid="link-home"
           className={
             location.pathname === "/" ? "active-link" : "inactive-link"
           }
@@ -18,6 +19,7 @@ const Navbar = () => {
         </Link>
         <Link
           to="/movies"
+          data-testid="link-movies"
           className={
             location.pathname === "/movies" ? "active-link" : "inactive-link"
           }
@@ -26,6 +28,7 @@ const Navbar = () => {
         </Link>
         <Link
           to="/tvseries"
+          data-testid="link-tvseries"
           className={
             location.pathname === "/tvseries" ? "active-link" : "inactive-link"
           }
