@@ -6,11 +6,12 @@ const SearchItem: React.FC<{
   searched: (content: string) => void;
   type: string;
 }> = ({ searched, type }) => {
+  console.log("Serach page loaded")
   const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="movie-search">
-      <p>Search & Discover {type} of your choice</p>
+      <p data-testid="search-txt">Search & Discover {type} of your choice</p>
       <div className="movie-search-bar">
         <input
           type="text"

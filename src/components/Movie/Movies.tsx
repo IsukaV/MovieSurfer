@@ -20,7 +20,7 @@ const Movies = () => {
   };
 
   return (
-    <div className="movie-search-container">
+    <div data-testid="movie-search" className="movie-search-container">
       {!movie && <SearchItem searched={handleSearchMovie} type="movie" />}
       {movie && (
         <SearchResults
