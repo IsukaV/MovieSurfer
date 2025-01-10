@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import SearchResults from "../SearchResults";
 import "./Movies.css";
-import SearchItem from "../Common/SearchItem";
+import SearchItem from "../Common/SearchBar";
 
 const Movies = () => {
   const [movie, setMovie] = useState("");

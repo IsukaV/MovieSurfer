@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchResults from "../SearchResults";
 import "./Series.css";
-import SearchItem from "../Common/SearchItem";
+import SearchItem from "../Common/SearchBar";
 
 const Series = () => {
   const [series, setSeries] = useState("");
