@@ -3,9 +3,9 @@ import { searchItem, itemInfo, seriesInfo } from "../types/common.types";
 import { fetchItemInfo } from "../services/apiServices";
 
 const ItemDetails: React.FC<{
-    item: searchItem;
+    imdbID: string;
     detailClosed: () => void;
-  }> = ({ item, detailClosed }) => {
+  }> = ({ imdbID, detailClosed }) => {
     const [data, setData] = useState<itemInfo | seriesInfo | null>(null);
     const [loading, setLoading] = useState(true);
   
@@ -14,7 +14,7 @@ const ItemDetails: React.FC<{
   
       const getitemInfo = async () => {
         try {
-          const itemData = await fetchItemInfo(item.imdbID);
+          const itemData = await fetchItemInfo(imdbID);
           setData(itemData);
         } catch (error: any) {
           console.log(error);
@@ -38,7 +38,7 @@ const ItemDetails: React.FC<{
           <div className="item-details">
             {data?.Plot && (
               <div>
-                <p className="item-title-txt">
+                <p className="item-title-txt" data-testid="item-name-year">
                   {data.Title} - {data.Year}{" "}
                 </p>
                 <p>{data.Plot}</p>
@@ -46,13 +46,13 @@ const ItemDetails: React.FC<{
             )}
             {data?.Released && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }}>Released on</p>
+                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid= "released-date">Released on</p>
                 <p>{data.Released}</p>
               </div>
             )}
             {data?.Actors && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }}>Actors</p>
+                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid = "actors">Actors</p>
                 <p>{data.Actors}</p>
               </div>
             )}
@@ -70,7 +70,7 @@ const ItemDetails: React.FC<{
             )}
             {data?.totalSeasons && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }}>
+                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid = "total-seasons">
                   Total seasons
                 </p>
                 <p>{data.totalSeasons}</p>
@@ -78,7 +78,7 @@ const ItemDetails: React.FC<{
             )}
           </div>
         )}
-        <button className="close-item-details" onClick={detailClosed}>
+        <button className="close-item-details" onClick={detailClosed} role="close-button">
           Close
         </button>
       </div>
