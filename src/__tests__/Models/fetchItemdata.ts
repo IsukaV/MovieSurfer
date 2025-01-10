@@ -1,4 +1,4 @@
-export const movieDetails = {
+export const seriesDetails = {
     Title: "Game of Thrones",
     Year: "2011–2019",
     Released: "17 Apr 2011",
@@ -10,7 +10,7 @@ export const movieDetails = {
     totalSeasons: "8",
   }
 
-  export const seriesDetails = {
+  export const movieDetails = {
     Title: "The Red Spider",
     Year: "2015",
     Released: "27 Nov 2015",
