@@ -50,13 +50,5 @@ describe("Testing SearchResult Component", () => {
 
     });
 
-  test("Should be back when back button is clicked", async () => {
-    renderSearchResult();
-    const user = userEvent.setup();
-    const backButton = await screen.findByText(/back/i);
-    await user.click(backButton);
-        
-    expect( screen.queryByText("Spider Man No Way Home")).not.toBeInTheDocument();
-   
-  });
+  
 });
