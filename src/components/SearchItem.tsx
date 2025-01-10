@@ -18,7 +18,7 @@ const Item: React.FC<{ item: searchItem }> = ({ item }) => {
           {item.Poster == "N/A" && <div>No Image</div>}
         </div>
         <div className="item-info-container">
-          <p className="item-title">{item.Title}</p>
+          <p data-testid= "item-title" className="item-title">{item.Title}</p>
         </div>
       </div>
       {itemClicked && (
