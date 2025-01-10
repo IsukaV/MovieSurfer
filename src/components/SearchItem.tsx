@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemDetails from "./ItemDetails"
-import { itemInfo, seriesInfo, searchItem } from "../types/common.types";
-import { fetchItemInfo } from "../services/apiServices";
+import {  searchItem } from "../types/common.types";
 import "./SearchItem.css";
 
 const Item: React.FC<{ item: searchItem }> = ({ item }) => {
@@ -18,7 +17,7 @@ const Item: React.FC<{ item: searchItem }> = ({ item }) => {
           {item.Poster == "N/A" && <div>No Image</div>}
         </div>
         <div className="item-info-container">
-          <p className="item-title">{item.Title}</p>
+          <p data-testid= "item-title" className="item-title">{item.Title}</p>
         </div>
       </div>
       {itemClicked && (

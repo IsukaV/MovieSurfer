@@ -6,7 +6,7 @@ const SearchBar: React.FC<{
   searched: (content: string) => void;
   type: string;
 }> = ({ searched, type }) => {
-  console.log("Serach page loaded")
+
   const [searchValue, setSearchValue] = useState("");
 
   return (
@@ -19,7 +19,7 @@ const SearchBar: React.FC<{
           data-testid="search-input"
           type="text"
           value={searchValue}
-          onKeyPress={(e) => {
+          onKeyDown={(e) => {
             if (e.key === "Enter") {
               searched(searchValue);
             }
@@ -28,7 +28,7 @@ const SearchBar: React.FC<{
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <button onClick={() => searched(searchValue)}>
-          <IonIcon data-testid="search-Icon" name="search-outline" style={{ fontSize: "30px" }} />
+          <IonIcon data-testid="search-Icon" name="search-outline" className="search-icon"  />
         </button>
       </div>
     </div>
