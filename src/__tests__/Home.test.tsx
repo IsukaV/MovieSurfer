@@ -2,12 +2,11 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter as Router,MemoryRouter, Routes, Route } from "react-router-dom";
 import { createMemoryHistory } from 'history';
-import Home from "../components/Home";
-import Movies from "../components/Movie/Movies";
 import AppRoutes from "../routes/AppRoutes";
 
 beforeEach(() => {
     // Reinitialize the history object before each test to reset state
+   
     history = createMemoryHistory({ initialEntries: ['/'] });
   });
 
@@ -39,7 +38,7 @@ describe("Testing home components", () => {
     await user.click(movieBtn);
 
     // Make sure we navigate to the "/movies" page
-    const text = screen.getByTestId('search-txt');
+    const text = screen.getByTestId('search-text');
     expect(text).toBeInTheDocument();
   });
   it("Browse TV Series button takes to movies search page", async () => {
@@ -55,7 +54,7 @@ describe("Testing home components", () => {
     await user.click(movieBtn);
 
     // Make sure we navigate to the "/movies" page
-    const text = screen.getByTestId('search-txt');
+    const text = screen.getByTestId('search-text');
     expect(text).toBeInTheDocument();
   });
 });
