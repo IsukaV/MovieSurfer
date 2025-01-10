@@ -22,7 +22,7 @@ const Item: React.FC<{ item: searchItem }> = ({ item }) => {
         </div>
       </div>
       {itemClicked && (
-        <ItemDetails item={item} detailClosed={handleDetailClose} />
+        <ItemDetails imdbID={item.imdbID} detailClosed={handleDetailClose} />
       )}
     </>
   );
