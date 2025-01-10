@@ -41,39 +41,39 @@ const ItemDetails: React.FC<{
                 <p className="item-title-txt" data-testid="item-name-year">
                   {data.Title} - {data.Year}{" "}
                 </p>
-                <p>{data.Plot}</p>
+                <p data-testid="plot">{data.Plot}</p>
               </div>
             )}
             {data?.Released && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid= "released-date">Released on</p>
-                <p>{data.Released}</p>
+                <p style={{ fontWeight: "bold", paddingTop: 10 }}>Released on</p>
+                <p data-testid= "released-date">{data.Released}</p>
               </div>
             )}
             {data?.Actors && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid = "actors">Actors</p>
-                <p>{data.Actors}</p>
+                <p style={{ fontWeight: "bold", paddingTop: 10 }} >Actors</p>
+                <p data-testid = "actors">{data.Actors}</p>
               </div>
             )}
             {data?.Director && (
               <div>
                 <p style={{ fontWeight: "bold", paddingTop: 10 }}>Director</p>
-                <p>{data.Director}</p>
+                <p data-testid="director">{data.Director}</p>
               </div>
             )}
             {data?.Genre && (
               <div>
                 <p style={{ fontWeight: "bold", paddingTop: 10 }}>Genre</p>
-                <p>{data.Genre}</p>
+                <p data-testid="genre">{data.Genre}</p>
               </div>
             )}
             {data?.totalSeasons && (
               <div>
-                <p style={{ fontWeight: "bold", paddingTop: 10 }} data-testid = "total-seasons">
+                <p style={{ fontWeight: "bold", paddingTop: 10 }}>
                   Total seasons
                 </p>
-                <p>{data.totalSeasons}</p>
+                <p data-testid = "total-seasons">{data.totalSeasons}</p>
               </div>
             )}
           </div>
