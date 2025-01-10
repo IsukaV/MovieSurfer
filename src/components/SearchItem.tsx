@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ItemDetails from "./ItemDetails"
-import { itemInfo, seriesInfo, searchItem } from "../types/common.types";
-import { fetchItemInfo } from "../services/apiServices";
+import {  searchItem } from "../types/common.types";
 import "./SearchItem.css";
 
 const Item: React.FC<{ item: searchItem }> = ({ item }) => {

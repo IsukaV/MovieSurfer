@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MovieItem from "./Movie/MovieItem";
-import SeriesItem from "./Series/SeriesItem";
 import SearchItem from "./SearchItem";
 import PageSelector from "./PageSelector";
 import { movieData } from "./../types/movie.types";
@@ -47,6 +45,12 @@ const SearchResults: React.FC<SearchResultsProps> = ({
     console.log(page_no);
   };
 
+  const handleBackClick = () => {
+ 
+    setData(null);  
+    backClicked();
+  };
+
   if (!data) {
     return (
       <>
@@ -58,8 +62,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   return (
     <>
       <div className="search-result-txt">
-        <button className="search-result-back-btn" onClick={backClicked}>
-          <p>Back</p>
+        <button className="search-result-back-btn" onClick={handleBackClick}>
+          <p data-testid="back-text">Back</p>
         </button>
         {data.totalResults ? data.totalResults : 0} Results : {searchText}
       </div>

@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import SearchBar from "../components/Common/SearchBar";
+import { vi } from "vitest";
 
 describe("Testing the searchbar component", () => {
   const mockSearched = vi.fn();
