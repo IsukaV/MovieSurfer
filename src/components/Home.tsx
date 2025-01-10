@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MoviePosters from "./../assets/s-l1200.jpg";
 import "./Home.css";
 
@@ -8,14 +9,14 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-img">
-        <img src={MoviePosters} alt="Posters"></img>
+        <img src={MoviePosters} alt="Posters" />
       </div>
       <div>
         <p className="home-header-txt">Welcome to Movie Surfer</p>
         <p className="home-txt">{home_text}</p>
         <div className="home-btns">
-          <a href="/movies">Browse Movies</a>
-          <a href="/tvseries">Browse TV Series</a>
+          <Link data-testid="browse-movie" to="/movies">Browse Movies</Link>
+          <Link data-testid="browse-series" to="/tvseries">Browse TV Series</Link>
         </div>
       </div>
     </div>

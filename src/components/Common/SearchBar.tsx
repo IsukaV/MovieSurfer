@@ -6,11 +6,16 @@ const SearchBar: React.FC<{
   searched: (content: string) => void;
   type: string;
 }> = ({ searched, type }) => {
+  console.log("Serach page loaded")
   const [searchValue, setSearchValue] = useState("");
 
   return (
     <div className="movie-search">
+<<<<<<< HEAD:src/components/Common/SearchBar.tsx
       <p data-testid="search-text">Search & Discover {type} of your choice</p>
+=======
+      <p data-testid="search-txt">Search & Discover {type} of your choice</p>
+>>>>>>> b07f02b855ab077b8a6dd7c1bd2a2188626eb9fb:src/components/Common/SearchItem.tsx
       <div className="movie-search-bar">
         <input
           data-testid="search-input"
