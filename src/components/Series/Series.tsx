@@ -1,10 +1,10 @@
-import { useState } from "react";
-import SearchResults from "../SearchResults";
-import "./Series.css";
-import SearchItem from "../Common/SearchBar";
+import { useState } from 'react';
+import SearchResults from '../SearchResults';
+import './Series.css';
+import SearchItem from '../Common/SearchBar';
 
 const Series = () => {
-  const [series, setSeries] = useState("");
+  const [series, setSeries] = useState('');
 
   const handleSearchSeries = (data: string) => {
     setSeries(data);
@@ -12,7 +12,7 @@ const Series = () => {
   };
 
   const handleBackClicked = () => {
-    setSeries("");
+    setSeries('');
   };
 
   return (

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./PageSelector.css";
-import IonIcon from "@reacticons/ionicons";
+import React, { useEffect, useState } from 'react';
+import './PageSelector.css';
+import IonIcon from '@reacticons/ionicons';
 
 interface PageProps {
   pageNo: number;
@@ -35,21 +35,35 @@ const Page: React.FC<PageProps> = ({
   };
   return (
     <>
-      {pageNo == selectedNo && type == "page"  && (
-        <button className="page-btn-selected" data-testid="selected-page">{pageNo}</button>
-      )}
-      {pageNo != selectedNo && type == "page" && (
-        <button className="page-btn" data-testid="page-no" onClick={() => pageClicked(pageNo)}>
+      {pageNo == selectedNo && type == 'page' && (
+        <button className="page-btn-selected" data-testid="selected-page">
           {pageNo}
         </button>
       )}
-      {type == "next" && (
-        <button className="page-btn" data-testid="forward-btn" onClick={handleNext}>
+      {pageNo != selectedNo && type == 'page' && (
+        <button
+          className="page-btn"
+          data-testid="page-no"
+          onClick={() => pageClicked(pageNo)}
+        >
+          {pageNo}
+        </button>
+      )}
+      {type == 'next' && (
+        <button
+          className="page-btn"
+          data-testid="forward-btn"
+          onClick={handleNext}
+        >
           <IonIcon name="chevron-forward-outline" />
         </button>
       )}
-      {type == "prev" && (
-        <button className="page-btn" data-testid="back-btn" onClick={handlePrevious}>
+      {type == 'prev' && (
+        <button
+          className="page-btn"
+          data-testid="back-btn"
+          onClick={handlePrevious}
+        >
           <IonIcon name="chevron-back-outline" />
         </button>
       )}
@@ -74,7 +88,7 @@ const PageSelector: React.FC<PageSelectorProps> = ({
       setPages(Math.ceil(totalResults / 10));
       const pagesArray = Array.from(
         { length: Math.ceil(totalResults / 10) },
-        (_, index) => index + 1,
+        (_, index) => index + 1
       );
       setPageNumbers(pagesArray);
     }
@@ -87,13 +101,13 @@ const PageSelector: React.FC<PageSelectorProps> = ({
       if (page_no == pageNumbers[pageNumbers.length - 1] && pages > page_no) {
         const pagesArray = Array.from(
           { length: page_no + 1 - (page_no + 1 - 9) + 1 },
-          (_, index) => page_no + 1 - 9 + index,
+          (_, index) => page_no + 1 - 9 + index
         );
         setPageNumbers(pagesArray);
       } else if (page_no == pageNumbers[0] && page_no > 1) {
         const pagesArray = Array.from(
           { length: page_no + 10 - page_no - 1 + 1 },
-          (_, index) => page_no - 1 + index,
+          (_, index) => page_no - 1 + index
         );
         setPageNumbers(pagesArray);
       }
@@ -107,7 +121,7 @@ const PageSelector: React.FC<PageSelectorProps> = ({
           <Page
             pageNo={-1}
             selectedNo={currentPage}
-            key={"prev"}
+            key={'prev'}
             pageClicked={handlePageClicked}
             pages={pages}
             type="prev"
@@ -129,7 +143,7 @@ const PageSelector: React.FC<PageSelectorProps> = ({
           <Page
             pageNo={-1}
             selectedNo={currentPage}
-            key={"next"}
+            key={'next'}
             pageClicked={handlePageClicked}
             pages={pages}
             type="next"

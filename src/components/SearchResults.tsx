@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import SearchItem from "./SearchItem";
-import PageSelector from "./PageSelector";
-import { movieData } from "./../types/movie.types";
-import { seriesData } from "./../types/series.types";
-import { fetchItems } from "../services/apiServices";
-import "./SearchResults.css";
+import React, { useState, useEffect } from 'react';
+import SearchItem from './SearchItem';
+import PageSelector from './PageSelector';
+import { movieData } from './../types/movie.types';
+import { seriesData } from './../types/series.types';
+import { fetchItems } from '../services/apiServices';
+import './SearchResults.css';
 
 interface SearchResultsProps {
   searchText: string;
@@ -18,7 +18,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   type,
 }) => {
   const [loading, setLoading] = useState(true);
-  const [searchTxt, setSearchTxt] = useState(" ");
+  const [searchTxt, setSearchTxt] = useState(' ');
   const [pageNo, setPageNo] = useState(1);
   const [data, setData] = useState<movieData | seriesData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -46,8 +46,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({
   };
 
   const handleBackClick = () => {
- 
-    setData(null);  
+    setData(null);
     backClicked();
   };
 
@@ -70,11 +69,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({
       {data.Search && (
         <div className="movie-results-container">
           {!loading &&
-            type == "movie" &&
+            type == 'movie' &&
             searchTxt &&
             data.Search.map((movie) => <SearchItem item={movie} />)}
           {!loading &&
-            type == "series" &&
+            type == 'series' &&
             searchTxt &&
             data.Search.map((series) => <SearchItem item={series} />)}
           {loading && <div className="loading-movies">Loading</div>}

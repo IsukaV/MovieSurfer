@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import SearchResults from "../SearchResults";
-import "./Movies.css";
-import SearchItem from "../Common/SearchBar";
+import SearchResults from '../SearchResults';
+import './Movies.css';
+import SearchItem from '../Common/SearchBar';
 
 const Movies = () => {
-  const [movie, setMovie] = useState("");
+  const [movie, setMovie] = useState('');
   const [searched, setSearched] = useState(false);
   console.log(searched);
   const handleSearchMovie = (data: string) => {
@@ -16,7 +16,7 @@ const Movies = () => {
 
   const handleBackClicked = () => {
     setSearched(false);
-    setMovie("");
+    setMovie('');
   };
 
   return (

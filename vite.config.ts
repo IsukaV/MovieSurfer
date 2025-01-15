@@ -11,6 +11,6 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'html'],
       all: true, // Include all files
-    },  
+    },
   },
 });

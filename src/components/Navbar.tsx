@@ -1,18 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.css';
 
 const Navbar = () => {
   const location = useLocation();
 
   return (
     <div className="navbar">
-      <p className="logo-txt" data-testid="navbar-logo">Movie Surfer</p>
+      <p className="logo-txt" data-testid="navbar-logo">
+        Movie Surfer
+      </p>
       <nav>
         <Link
           to="/"
           data-testid="link-home"
           className={
-            location.pathname === "/" ? "active-link" : "inactive-link"
+            location.pathname === '/' ? 'active-link' : 'inactive-link'
           }
         >
           Home
@@ -21,7 +23,7 @@ const Navbar = () => {
           to="/movies"
           data-testid="link-movies"
           className={
-            location.pathname === "/movies" ? "active-link" : "inactive-link"
+            location.pathname === '/movies' ? 'active-link' : 'inactive-link'
           }
         >
           Movies
@@ -30,7 +32,7 @@ const Navbar = () => {
           to="/tvseries"
           data-testid="link-tvseries"
           className={
-            location.pathname === "/tvseries" ? "active-link" : "inactive-link"
+            location.pathname === '/tvseries' ? 'active-link' : 'inactive-link'
           }
         >
           TV Series

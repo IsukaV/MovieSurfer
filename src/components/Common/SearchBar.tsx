@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import IonIcon from "@reacticons/ionicons";
-import "./SearchBar.css";
+import React, { useState } from 'react';
+import IonIcon from '@reacticons/ionicons';
+import './SearchBar.css';
 
 const SearchBar: React.FC<{
   searched: (content: string) => void;
   type: string;
 }> = ({ searched, type }) => {
-
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="movie-search">
-
       <p data-testid="search-text">Search & Discover {type} of your choice</p>
 
       <div className="movie-search-bar">
@@ -20,7 +18,7 @@ const SearchBar: React.FC<{
           type="text"
           value={searchValue}
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === 'Enter') {
               searched(searchValue);
             }
           }}
@@ -28,7 +26,11 @@ const SearchBar: React.FC<{
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <button onClick={() => searched(searchValue)}>
-          <IonIcon data-testid="search-Icon" name="search-outline" className="search-icon"  />
+          <IonIcon
+            data-testid="search-Icon"
+            name="search-outline"
+            className="search-icon"
+          />
         </button>
       </div>
     </div>
