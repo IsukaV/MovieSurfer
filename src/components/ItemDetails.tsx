@@ -1,6 +1,7 @@
 import React, {useState , useEffect} from "react";
 import { searchItem, itemInfo, seriesInfo } from "../types/common.types";
 import { fetchItemInfo } from "../services/apiServices";
+import './itemDetails.css'
 
 const ItemDetails: React.FC<{
     imdbID: string;

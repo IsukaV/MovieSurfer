@@ -74,11 +74,6 @@ describe("Item details component should work as intended", () => {
 
     beforeAll(() => {
         vi.mocked(fetchItemInfo).mockResolvedValue(movieDetails)
-        console.log("movie")
-        console.log(fetchItemInfo('fsd'))
-        // vi.mock('../services/apiServices', () => ({
-        //     fetchItemInfo: vi.fn().mockResolvedValue(movieDetails),
-        // }))
 
     })
 
@@ -89,11 +84,8 @@ describe("Item details component should work as intended", () => {
 
     it("Component should display item details", async () => {
 
-
-        console.log("Ended the test")
         render(<ItemDetails imdbID="tt4817256" detailClosed={closeFunction}/>)
         const response = await fetchItemInfo('asdf')
-        console.log(response)
         const plot = await screen.findByTestId("plot")
         const movieNameAndYear = await screen.findByTestId("item-name-year")
         const releasedDate = await screen.findByTestId("released-date")
@@ -126,11 +118,6 @@ describe("Item details component should work as intended", () => {
 
     beforeAll(() => {
         vi.mocked(fetchItemInfo).mockResolvedValue(seriesDetails)
-        console.log("One")
-        console.log(fetchItemInfo('fsd'))
-        // vi.mock('../services/apiServices', () => ({
-        //     fetchItemInfo: vi.fn(),
-        // }))
 
     })
 
@@ -143,7 +130,6 @@ describe("Item details component should work as intended", () => {
         render(<ItemDetails imdbID="tt4817256" detailClosed={closeFunction}/>)
 
         const response = await fetchItemInfo('asdf')
-        console.log(response)
         const plot = await screen.findByTestId("plot")
         const movieNameAndYear = await screen.findByTestId("item-name-year")
         const releasedDate = await screen.findByTestId("released-date")
@@ -162,11 +148,10 @@ describe("Item details component should work as intended", () => {
     })
 
     it("Close button should work as intended", async () => {
+
         render(<ItemDetails imdbID="tt4817256" detailClosed={closeFunction}/>)
         const user = userEvent.setup();
-
         const closeBtn = await screen.findByRole("close-button")
-
         await user.click(closeBtn);
         expect(closeFunction).toHaveBeenCalledTimes(1)
 

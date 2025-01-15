@@ -35,21 +35,21 @@ const Page: React.FC<PageProps> = ({
   };
   return (
     <>
-      {pageNo == selectedNo && type == "page" && (
-        <button className="page-btn-selected">{pageNo}</button>
+      {pageNo == selectedNo && type == "page"  && (
+        <button className="page-btn-selected" data-testid="selected-page">{pageNo}</button>
       )}
       {pageNo != selectedNo && type == "page" && (
-        <button className="page-btn" onClick={() => pageClicked(pageNo)}>
+        <button className="page-btn" data-testid="page-no" onClick={() => pageClicked(pageNo)}>
           {pageNo}
         </button>
       )}
       {type == "next" && (
-        <button className="page-btn" onClick={handleNext}>
+        <button className="page-btn" data-testid="forward-btn" onClick={handleNext}>
           <IonIcon name="chevron-forward-outline" />
         </button>
       )}
       {type == "prev" && (
-        <button className="page-btn" onClick={handlePrevious}>
+        <button className="page-btn" data-testid="back-btn" onClick={handlePrevious}>
           <IonIcon name="chevron-back-outline" />
         </button>
       )}
@@ -68,10 +68,8 @@ const PageSelector: React.FC<PageSelectorProps> = ({
   useEffect(() => {
     setPages(Math.ceil(totalResults / 10));
     if (Math.ceil(totalResults / 10) > 10) {
-      console.log("Greter than 10 pages");
       const pagesArray = Array.from({ length: 10 }, (_, index) => index + 1);
       setPageNumbers(pagesArray);
-      console.log(pagesArray);
     } else {
       setPages(Math.ceil(totalResults / 10));
       const pagesArray = Array.from(
@@ -91,7 +89,6 @@ const PageSelector: React.FC<PageSelectorProps> = ({
           { length: page_no + 1 - (page_no + 1 - 9) + 1 },
           (_, index) => page_no + 1 - 9 + index,
         );
-        console.log(pagesArray);
         setPageNumbers(pagesArray);
       } else if (page_no == pageNumbers[0] && page_no > 1) {
         const pagesArray = Array.from(
